@@ -54,9 +54,9 @@ func (h *AuthHandler) GitHubStart(w http.ResponseWriter, r *http.Request) {
 	}
 	state := EncodeOAuthState(payload, h.Config.JWTSecret)
 
-	// Redirect to GitHub
+	// Redirect to GitHub (prompt=consent forces fresh auth, avoids cached redirects)
 	ghURL := fmt.Sprintf(
-		"https://github.com/login/oauth/authorize?client_id=%s&redirect_uri=%s&scope=read:user&state=%s",
+		"https://github.com/login/oauth/authorize?client_id=%s&redirect_uri=%s&scope=read:user&state=%s&prompt=consent",
 		url.QueryEscape(h.Config.GitHubClientID),
 		url.QueryEscape(h.Config.BaseURL+"/auth/github/callback"),
 		url.QueryEscape(state),
