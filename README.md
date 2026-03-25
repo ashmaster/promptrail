@@ -1,4 +1,4 @@
-# PromptRail
+# PrompTrail
 
 CLI tool to upload, share, and view Claude Code sessions.
 
