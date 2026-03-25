@@ -7,5 +7,5 @@ dist/
 .DS_Store
 *.swp
 *.swo
-csa
-pt
+/csa
+/pt

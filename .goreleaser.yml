@@ -1,3 +1,5 @@
+version: 2
+
 project_name: promptrail
 
 before:
@@ -22,13 +24,12 @@ builds:
 
 archives:
   - id: pt
-    builds:
-      - pt
-    format: tar.gz
+    builds: [pt]
     name_template: "promptrail_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    formats: ["tar.gz"]
     format_overrides:
       - goos: windows
-        format: zip
+        formats: ["zip"]
 
 checksum:
   name_template: "checksums.txt"
