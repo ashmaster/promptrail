@@ -1,0 +1,50 @@
+project_name: promptrail
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: pt
+    main: ./cmd/pt
+    binary: pt
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.ShortCommit}}
+
+archives:
+  - id: pt
+    builds:
+      - pt
+    format: tar.gz
+    name_template: "promptrail_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+release:
+  github:
+    owner: ashmaster
+    name: promptrail
+  draft: false
+  prerelease: auto
+  name_template: "v{{.Version}}"
