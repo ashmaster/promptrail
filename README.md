@@ -7,7 +7,7 @@ Upload any Claude Code conversation to the cloud and share it with a link. Sessi
 ## Install
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ashmaster/promptrail/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/ashmaster/promptrail/master/install.sh | sh
 ```
 
 Or build from source:
