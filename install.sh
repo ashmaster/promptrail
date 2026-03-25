@@ -1,6 +1,6 @@
 #!/bin/sh
 # Install PromptRail
-# Usage: curl -fsSL https://raw.githubusercontent.com/ashmaster/promptrail/main/install.sh | sh
+# Usage: curl -fsSL https://raw.githubusercontent.com/ashmaster/promptrail/master/install.sh | sh
 
 set -e
 
@@ -60,3 +60,5 @@ echo "  pt login          # authenticate with GitHub"
 echo "  pt list           # browse local sessions"
 echo "  pt upload         # upload a session"
 echo "  pt view <id>      # view a session"
+echo ""
+echo "Backend: https://promptrail.fly.dev"
